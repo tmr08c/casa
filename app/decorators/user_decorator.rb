@@ -7,6 +7,11 @@ class UserDecorator < Draper::Decorator
     "Inactive"
   end
 
+  # in volunteer creation, exclude what you don't want
+  def create_errors
+    
+  end
+
   def name
     return object.email if object.display_name.blank?
 

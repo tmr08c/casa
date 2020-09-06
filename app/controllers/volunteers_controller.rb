@@ -14,7 +14,6 @@ class VolunteersController < ApplicationController
       VolunteerMailer.account_setup(@volunteer).deliver
       redirect_to root_path
     else
-
       render :new
     end
   end
