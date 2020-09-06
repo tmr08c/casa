@@ -10,11 +10,11 @@ class VolunteersController < ApplicationController
 
   def create
     @volunteer = Volunteer.new(create_volunteer_params)
-
     if @volunteer.save
       VolunteerMailer.account_setup(@volunteer).deliver
       redirect_to root_path
     else
+
       render :new
     end
   end
@@ -67,10 +67,14 @@ class VolunteersController < ApplicationController
   end
 
   def create_volunteer_params
+    if params[:volunteer][:display_name].empty? or params[:volunteer][:email].empty?
+      nil
+    else
     VolunteerParameters
       .new(params)
       .with_password(generate_devise_password)
       .without_active
+    end
   end
 
   def update_volunteer_params
