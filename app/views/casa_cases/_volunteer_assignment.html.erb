@@ -16,6 +16,7 @@
         </thead>
         <tbody>
           <% @casa_case.case_assignments.each do |assignment| %>
+            <% next unless assignment.volunteer %>
             <tr>
               <td data-test="volunteer-name"><%= link_to assignment&.volunteer&.display_name, edit_volunteer_path(assignment.volunteer) %></td>
               <td data-test="volunteer-email"><%= assignment&.volunteer&.email %></td>
