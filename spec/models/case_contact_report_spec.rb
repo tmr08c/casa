@@ -166,6 +166,27 @@ RSpec.describe CaseContactReport, type: :model do
         end
       end
 
+      describe "contact type group filter functionality" do
+        it "returns only the case contacts whose contact_type includes the case contact type group ids" do
+          supervisor = create(:supervisor)
+          volunteer = create(:volunteer)
+          volunteer2 = create(:volunteer)
+          contact_type_group = create(:contact_type_group, name: "Placement")
+          court = create(:contact_type, name: "Court", contact_type_group: contact_type_group)
+          school = create(:contact_type, name: "School")
+          create(:supervisor_volunteer, volunteer: volunteer, supervisor: supervisor)
+
+          contact = create(:case_contact, {occurred_at: 20.days.ago, creator_id: volunteer.id, db_contact_types: [court]})
+          create(:case_contact, {occurred_at: 100.days.ago, creator_id: volunteer2.id, db_contact_types: [school]})
+
+          create(:case_contact, {occurred_at: 100.days.ago})
+          report = CaseContactReport.new({contact_type_group_ids: [contact_type_group.id]})
+          contacts = report.case_contacts
+          expect(contacts.length).to eq(1)
+          expect(contacts).to eq([contact])
+        end
+      end
+
       describe "multiple filter behavior" do
         it "only returns records that occured less than 30 days ago, the youth has transitioned, and the contact type was either court or therapist" do
           court = create(:contact_type, name: "Court")
