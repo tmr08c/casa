@@ -126,6 +126,7 @@ class User < ApplicationRecord
   end
 
   def serving_transition_aged_youth?
+    puts "changed a ruby file"
     casa_cases.where(transition_aged_youth: true).any?
   end
 end
