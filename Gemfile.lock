@@ -111,6 +111,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-security (0.14.3)
+      devise (>= 4.3.0, < 5.0)
+      rails (>= 4.2.0, < 7.0)
     devise_invitable (2.0.2)
       actionmailer (>= 5.0)
       devise (>= 4.6)
@@ -338,6 +341,7 @@ DEPENDENCIES
   capybara-screenshot
   cypress-on-rails (~> 1.0)
   devise
+  devise-security (~> 0.14.3)
   devise_invitable
   draper
   erb_lint
