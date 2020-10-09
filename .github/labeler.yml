@@ -3,9 +3,12 @@
 # See https://github.com/actions/labeler for more details
 ruby:
 - "**/*.rb"
+- "Gemfile*"
 
 javascript:
 - "**/*.js"
+- "package*.json"
+- "yarn.lock"
 
 Tests! 🎉💖👏:
 - "app/javascript/__tests__/**.test.js"
