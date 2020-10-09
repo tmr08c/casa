@@ -12,6 +12,7 @@ test("case_contact doesn't run on pages without case contact form", () => {
   require('../src/case_contact')
 
   expect(() => {
+    Console.log("Changeeeeee")
     window.onload()
   }).not.toThrow()
 })
