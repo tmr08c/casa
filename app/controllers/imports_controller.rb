@@ -5,6 +5,7 @@ class ImportsController < ApplicationController
   before_action :must_be_admin
 
   def index
+    puts "I'm in importing/exporting."
     @import_type = params.fetch(:import_type, "volunteer")
     @import_error = session[:import_error]
     session[:import_error] = nil
