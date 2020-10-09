@@ -11,20 +11,20 @@
 # properly added.
 
 ruby:
-- "**/*.rb"
-- "Gemfile*"
+- **/*.rb
+- Gemfile*
 
 javascript:
-- "**/*.js"
-- "package*.json"
-- "yarn.lock"
+- **/*.js
+- package*.json
+- yarn.lock
 
 Tests! 🎉💖👏:
-- "app/javascript/__tests__/**.test.js"
-- "cypress/**/*.spec.js"
-- "spec/**/*_spec.rb"
+- app/javascript/__tests__/**.test.js
+- cypress/**/*.spec.js
+- spec/**/*_spec.rb
 
 dependencies:
-- "Gemfile*"
-- "package*.json"
-- "yarn.lock"
+- Gemfile*
+- package*.json
+- yarn.lock
