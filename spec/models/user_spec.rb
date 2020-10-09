@@ -177,6 +177,7 @@ RSpec.describe User, type: :model do
       let!(:inactive_assignment) { create(:supervisor_volunteer, volunteer: previously_assigned, is_active: false) }
 
       it "returns unassigned volunteers" do
+        puts 'Winz'
         expect(subject.map(&:display_name).sort).to eq(["aaa", "bbb", "fff"])
       end
     end
