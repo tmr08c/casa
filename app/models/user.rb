@@ -122,6 +122,7 @@ class User < ApplicationRecord
 
   # Called by Devise to generate an error message when a user is not active.
   def inactive_message
+    puts "hi1"
     !active ? :inactive : super
   end
 
